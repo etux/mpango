@@ -1,0 +1,16 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+ "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+   <session-factory>
+		<mapping class="net.sf.mpango.game.core.entity.Player" />
+        <mapping class="net.sf.mpango.game.core.entity.GameContext" />
+        <mapping class="net.sf.mpango.game.core.entity.GameBoard" />
+        <mapping class="net.sf.mpango.game.core.entity.GameConfiguration" />
+        <mapping class="net.sf.mpango.game.core.entity.BoardConfiguration" />
+        <mapping class="net.sf.mpango.game.core.entity.Cell" />
+        <mapping class="net.sf.mpango.game.core.enums.Resources" />
+        <mapping class="net.sf.mpango.game.core.entity.Construction" />
+   </session-factory>
+</hibernate-configuration>

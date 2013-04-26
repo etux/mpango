@@ -1,0 +1,42 @@
+	------
+	mPango :: Developers :: Running
+	------
+	Eduardo de Vera Toquero
+	------
+	2011-05-07
+	
+Running the application
+
+	Before running the application you should know how the application is bundled. At the moment we have two separate modules: core
+	and web. This means that the mPango-core jar is included in the mPango-web war file. This has consequences in order to run the project
+	at development time:
+	
+	When running the application during development, we officially support {{{http://docs.codehaus.org/display/JETTY/Maven+Jetty+Plugin}Maven Jetty Plugin}}. There are alternatives to this appraoch
+	such as Eclipse WTP support with different application servers. We think Jetty is simple and lightweight enough for a every day development practice.
+	
+	In any case you choose to run mpango-web, make sure that you have installed previously mpango-core by running mvn install in it.
+	
+	You can run the Maven Jetty plugin allows 3 possible scenarios when running:
+		
+* Default 
+
+	<mvn jetty:run>\
+	Recommended for <<development>> work.\
+	The application will be read directly from sources. This means that auto scanning reloads changes on the fly.
+	When running on this mode and due to the automatic reloanding of the web application when changes are detected, you need to run the application with the following 
+	system property MAVEN_OPTS="-XX:MaxPermSize=256m" to tweak Maven memory settings.
+	
+			
+* Exploded
+
+	<mvn jetty:run-exploded>\
+	Recommended for <<functional & integration>> testing.\
+	The application must be ready as a folder. This command can be executed from the parent project as well as from mpango-web.
+	You need to have executed mvn package in order to have the web application resources ready to be used.
+
+* War 
+
+	<mvn jetty:run-war>\
+	Recommended for <<user acceptance & application stress>> testing.\
+	The application must be bundled as a war. This means that the command is best executed from mpango-web after having 
+	done an mvn package or install.
